@@ -3,6 +3,10 @@ import cors from 'cors'
 import HelloController from "./controllers/hello-controller.js"
 import UserController from "./controllers/users/users-controller.js"
 import TuitsController from "./controllers/tuits/tuits-controller.js";
+import mongoose from "mongoose";
+const PASS = process.env.MONGO_WEBDEV_PASS;
+const CONNECT_STRING=`mongodb+srv://webdev-user:${PASS}@cluster0.csrkvxi.mongodb.net/?retryWrites=true&w=majority`;
+mongoose.connect(CONNECT_STRING);
 
 const app = express();
 app.use(cors());
